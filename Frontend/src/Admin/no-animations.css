@@ -1,0 +1,58 @@
+/* Remove animations - clean professional look */
+.draggableCard {
+  transition: none !important;
+}
+
+.draggableCard:hover {
+  transform: none !important;
+}
+
+.dragHandle {
+  transition: none !important;
+  background: #f8fafc !important;
+}
+
+.dragHandle:hover {
+  background: #e2e8f0 !important;
+}
+
+.categoryName {
+  transition: none !important;
+}
+
+.orderBadge {
+  transition: none !important;
+  background: #10b981 !important;
+  box-shadow: none !important;
+}
+
+.orderBadge:hover {
+  background: #059669 !important;
+  transform: none !important;
+}
+
+.actionBtn {
+  transition: none !important;
+}
+
+.actionBtn:hover {
+  transform: none !important;
+}
+/* Remove click-to-edit styling */
+.categoryName {
+  cursor: default !important;
+  border: none !important;
+}
+
+.categoryName:hover {
+  background: none !important;
+  border-color: transparent !important;
+}
+
+.orderBadge {
+  cursor: default !important;
+}
+
+.orderBadge:hover {
+  background: #10b981 !important;
+}

@@ -1,0 +1,479 @@
+.mainContainer {
+  display: flex;
+  /* background-color: #07073a; */
+}
+
+/* Page header when profile is shown as part of Home */
+.pageHeaderWrap {
+  width: 100%;
+  background: transparent;
+  padding: 12px 20px;
+}
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.breadcrumbs {
+  color: #fff;
+  font-weight: 600;
+}
+.breadcrumbLink {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.95;
+}
+.breadcrumbSep {
+  margin: 0 8px;
+  color: #fff;
+  opacity: 0.7;
+}
+.breadcrumbCurrent {
+  color: #fff;
+  opacity: 0.95;
+}
+.headerActions .backButton,
+.backButton {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 239px;
+  background: white;
+  color: #000;
+  padding: 21px;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.sidebarTitle {
+  font-size: 25px;
+  color: white;
+  background-color: #2B2B55;
+   border-radius: 12px;
+   font-weight: 500;
+  text-align: center;
+  padding: 4px;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+}
+
+/* Sidebar List Item */
+/* Sidebar List Item */
+.sidebarList li {
+  margin: 30px 0;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover Effect */
+.sidebarList li:hover {
+  background: #2B2B55;
+  color: #fff;
+}
+
+/* Active Menu Item */
+.sidebarList li.active {
+  background-color: #2B2B55; /* Active background */
+  color: white;
+}
+
+
+/* Keep active item hover smooth */
+.sidebarList li.active:hover {
+  background-color: #2B2B55; /* stays same as active */
+}
+
+
+/* Profile Container */
+.profileContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 18px auto;
+  background: linear-gradient(180deg, rgba(6,8,26,0.64), rgba(10,12,36,0.72));
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 30px 70px rgba(2,6,23,0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.formTitle {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.formSubtitle {
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: rgba(230,238,248,0.8);
+}
+
+/* Form */
+.profileForm {
+  display: grid;
+  border-radius: 12px;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Upload Section */
+.uploadContainer {
+  text-align: center;
+  margin-bottom: 6px;
+  grid-column: 1 / 2;
+  padding: 8px;
+}
+
+.uploadBox {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  width: 100%;
+  max-width: 260px;
+}
+
+.uploadImage {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 12px auto;
+  border: 3px solid rgba(255,255,255,0.04);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadText {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(230,238,248,0.95);
+}
+
+/* Input Groups */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin: 6px 0 6px 4px;
+  color: rgba(230,238,248,0.95);
+  font-size: 13px;
+}
+
+.profileInput {
+  padding: 12px 14px;
+  margin: 0 0 10px 0;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  outline: none;
+  color: #ffffff;
+  background-color: rgba(255,255,255,0.04);
+  transition: box-shadow 160ms ease, transform 120ms ease, border-color 120ms ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.profileInput::placeholder { color: rgba(255,255,255,0.65); }
+
+.profileInput:focus {
+  border-color: rgba(122,99,255,0.95);
+  box-shadow: 0 16px 48px rgba(99,102,241,0.08);
+  transform: translateY(-1px);
+}
+
+/* Custom styled select (shaded / shadow look) */
+.customSelect {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='rgba(255,255,255,0.95)' d='M5 7l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 44px;
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* Dropdown focus state */
+.customSelect:focus {
+  border-color: rgba(255,255,255,0.95);
+  box-shadow: 0 12px 36px rgba(42, 21, 120, 0.32);
+}
+
+/* Small helper to visually group label + control */
+.formGroup { margin-bottom: 12px; }
+
+/* Ensure native option dropdown uses dark theme where possible */
+select.profileInput, select.customSelect {
+  color: #fff; /* text color inside select */
+  -webkit-text-fill-color: #fff; /* Safari */
+}
+
+/* Styling for option elements (may be honored by modern browsers) */
+select.customSelect option,
+select.profileInput option {
+  background-color: #0b1020; /* dark dropdown background */
+  color: #fff;
+}
+
+/* Hide default MS expand on IE/Edge when using custom caret */
+select.customSelect::-ms-expand { display: none; }
+
+/* Fallback: ensure the select control background is dark */
+select.customSelect {
+  background-color: rgba(20,22,34,0.7);
+}
+
+/* Submit Button */
+.formSubmit {
+  grid-column: 1 / -1; /* span full width so button can be centered */
+  text-align: center;
+  margin-top: 18px;
+}
+
+.formSubmit button {
+  width: 180px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg,#ff7a18,#ffb86b);
+  color: #111;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.formSubmit button:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,122,24,0.12); }
+
+/* Lottie wrapper to position background animation */
+.lottieWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* Ensure content is above the Lottie */
+.profileContainer, .formTitle, .profileForm {
+  position: relative;
+  z-index: 30;
+}
+
+.formSubmit button:active {
+  transform: scale(0.95); /* click effect */
+}
+
+
+/* Success/Error Message */
+.formMessage {
+  text-align: left;
+  margin-top: 12px;
+  color: #cce3ff;
+  font-weight: 700;
+}
+
+.sidebarList li.active {
+  background-color: #2B2B55;
+  color: white;
+}
+
+/* Target date input */
+.profileInput[type="date"] {
+  color: white; /* text color */
+  background-color: #2B2B55; /* your input bg */
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-appearance: none; /* remove default styling in Chrome/Safari */
+  -moz-appearance: none; /* remove default styling in Firefox */
+  appearance: none;
+  position: relative;
+}
+
+/* For Firefox placeholder/icon */
+.profileInput[type="date"]::-moz-placeholder {
+  color: white;
+}
+
+/* Remove default calendar icon in Chrome/Safari */
+.profileInput[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* invert color to make it white */
+  opacity: 1; /* ensure it’s visible */
+}
+
+
+.sidebar {
+  height: auto;
+  background-color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+
+.collapseButton {
+  /* position: absolute;   stick inside sidebar */
+  top: 10px;            /* adjust how far from the top */
+  right: 10px;          /* stay inside the right corner */
+  
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  color: #2B2B55;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+
+/* responsive */
+
+/* Default (Desktop > 1024px) */
+.profileForm {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+}
+
+/* Tablet (768px - 1024px) → 2 columns */
+@media (max-width: 1024px) {
+  .profileForm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .sidebarTitle {
+    font-size: 20px;
+  }
+
+  .formTitle {
+    font-size: 24px;
+  }
+}
+
+/* Mobile (max-width: 768px) → 1 column */
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column; /* Sidebar stacks on top */
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebarList li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* mobile: single column form */
+  .profileForm {
+    grid-template-columns: 1fr;
+  }
+
+  .uploadContainer { grid-column: 1 / -1; }
+  .formSubmit { grid-column: 1 / -1; text-align: center; }
+
+  .profileContainer {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .profileForm {
+    grid-template-columns: 1fr;
+  }
+
+  .formTitle {
+    font-size: 20px;
+  }
+
+  .formSubtitle {
+    font-size: 16px;
+  }
+
+  .collapseButton {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  .uploadImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profileInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .formSubmit button {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .formTitle {
+    font-size: 18px;
+  }
+
+  .formSubtitle {
+    font-size: 14px;
+  }
+
+  .sidebarTitle {
+    font-size: 18px;
+    padding: 3px;
+  }
+
+  .uploadImage {
+    width: 80px;
+    height: 80px;
+  }
+}

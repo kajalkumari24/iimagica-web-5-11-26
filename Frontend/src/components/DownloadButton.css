@@ -1,0 +1,48 @@
+.format-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.format-btn {
+  background: #02012a;
+  border: 2px solid #ddd;
+  padding: 8px 16px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.format-btn:hover {
+  background: #4e7fdb;
+  border-color: #bbb;
+}
+
+.format-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.download-btn {
+  display: block;
+  width: fit-content;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid transparent;
+  margin: 30px auto 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: linear-gradient(90deg, #0056b3, #004099);
+}

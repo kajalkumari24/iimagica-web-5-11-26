@@ -1,0 +1,109 @@
+.privacyPolicyContainer {
+  flex: 1;
+  width: 100%;
+  padding: 48px 20px 64px;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: "Poppins", sans-serif;
+}
+
+.policyCard {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #F11C6B;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.title {
+  margin: 0;
+  color: #111827;
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.updated {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.content {
+  color: #374151;
+  font-size: 1rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+  margin: 1.4em 0 0.5em;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.content p {
+  margin: 0 0 1rem;
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+.content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.sectionHeading,
+.subHeading {
+  display: block;
+  color: #111827;
+  font-weight: 700;
+}
+
+.sectionHeading {
+  font-size: 1.08rem;
+}
+
+.inlineLabel {
+  color: #111827;
+  font-weight: 700;
+}
+
+.stateBox {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  color: #6b7280;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .privacyPolicyContainer {
+    padding: 32px 16px 48px;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+}

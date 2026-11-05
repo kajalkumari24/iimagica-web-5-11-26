@@ -1,0 +1,901 @@
+/* Preview Wrapper - Centered canvas */
+.previewWrapper {
+  position: relative;
+  display: inline-block;
+  width: 330px !important;
+  height: 415px !important;
+  max-width: 330px !important;
+  max-height: 415px !important;
+  display: block;
+  width: 330px;
+  border-radius: 12px;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.18);
+  margin: 0 auto;
+  background: transparent;
+}
+
+.basePreviewImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px !important;
+  height: 415px !important;
+  display: block;
+  border-radius: 12px;
+  transform: none !important;
+  transition: none;
+  z-index: 1;
+}
+
+.frameOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px !important;
+  height: 415px !important;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Download Button */
+.downloadBtn {
+  padding: 0.8rem 2rem;
+  background: #FF7A30;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  align-self: center;
+  z-index: 60;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  background: #FF9559 ;
+}
+
+.downloadBtn:active {
+  transform: translateY(0);
+}
+
+.downloadContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formatOptions {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 100;
+  margin-bottom: 0.5rem;
+}
+
+.formatBtn {
+  padding: 0.8rem 2rem;
+  background: #FF7A30;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 122, 48, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.formatBtn:hover {
+  transform: translateY(-2px);
+  background: #FF9559;
+}
+
+.formatBtn:active {
+  transform: translateY(0);
+}
+
+/* Main Container */
+.pageContainer {
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background: linear-gradient(135deg, #fffaf8 0%, #fff9f5 50%, #fff8f4 100%);
+  color: #1e1b4b;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.pageTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.6rem 0;
+  background: transparent;
+  border-bottom: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1;
+  color: #F56338;
+}
+
+.headerBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 122, 48, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.resumeBadge {
+  margin-left: auto;
+  padding: 6px 10px;
+  background: rgba(255, 122, 48, 0.1);
+  border: 1px solid rgba(255, 122, 48, 0.25);
+  color: #ea580c;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+.backBtn {
+  color: #F56338;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.14s ease;
+}
+
+.backBtn:hover {
+  background: rgba(255, 122, 48, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 122, 48, 0.2);
+}
+
+/* Main Content Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  flex: 1;
+  padding: 1.5rem;
+  min-height: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Preview Section (Left) */
+.previewSection {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow: auto;
+  min-height: 0;
+  border: 1px solid rgba(255, 122, 48, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 122, 48, 0.08);
+  height: 100%;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #F56338;
+  letter-spacing: 0.5px;
+}
+
+/* Desktop-only section title (hidden on mobile) */
+.sectionTitleDesktop {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #F56338;
+  letter-spacing: 0.5px;
+}
+
+/* Wrapper that holds preview + the floating mobile icon */
+.previewWrapperOuter {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Floating download icon — mobile only, hidden on desktop */
+.mobileDownloadIcon {
+  display: none;
+}
+
+/* Mobile format popup (appears near icon) */
+.formatOptionsMobile {
+  display: none;
+}
+
+/* Desktop download button container — visible on desktop, hidden on mobile */
+.downloadContainerDesktop {
+  display: flex;
+}
+
+.previewContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Controls Section (Right) */
+.controlsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+}
+
+.framesPanel {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 122, 48, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 122, 48, 0.07);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  flex: 0 0 auto;
+  max-height: 220px;
+}
+
+.imagesPanel {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 122, 48, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 122, 48, 0.07);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  flex: 1;
+}
+
+/* Grid Container */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.8rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  grid-auto-rows: 110px;
+  flex: 1;
+  min-height: 0;
+}
+
+.framesPanel .gridContainer {
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
+
+/* Custom Scrollbar */
+.gridContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gridContainer::-webkit-scrollbar-track {
+  background: rgba(255, 122, 48, 0.06);
+  border-radius: 10px;
+}
+
+.gridContainer::-webkit-scrollbar-thumb {
+  background: rgba(255, 122, 48, 0.35);
+  border-radius: 10px;
+}
+
+.gridContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 122, 48, 0.6);
+}
+
+/* Frame & Image Items */
+.imageItem,
+.frameItem {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(234, 88, 12, 0.12);
+  aspect-ratio: 1;
+  background: #ffffff;
+  display: block;
+  position: relative;
+}
+
+.imageItem:hover,
+.frameItem:hover {
+  border-color: rgba(234, 88, 12, 0.5);
+}
+
+.imageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.frameItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(234, 88, 12, 0.18);
+}
+
+.frameItem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.selectedFrame {
+  border: 2px solid #ea580c !important;
+  background: #fff7ed;
+}
+
+.activeImage {
+  border: 2px solid #ea580c !important;
+}
+
+.emptyText {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  padding: 2rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #6366f1;
+}
+
+/* Draggable Elements */
+.draggableText {
+  position: absolute;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: none !important;
+  cursor: move;
+  display: block;
+  line-height: 1 !important;
+  letter-spacing: 0;
+  white-space: nowrap;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  backdrop-filter: none;
+  user-select: none;
+  transition: opacity 0.12s ease;
+  z-index: 4;
+}
+
+.socialIcon {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  margin-right: 4px;
+}
+
+.socialIcon img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.draggableText span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.draggableText:hover {
+  opacity: 0.9;
+}
+
+.uploadedDraggable {
+  position: absolute !important;
+  z-index: 3 !important;
+  object-fit: cover;
+  cursor: move;
+  border-radius: 8px;
+  pointer-events: auto;
+}
+
+.uploadedDraggable:hover {
+  opacity: 0.95;
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.uploadInput {
+  margin: 1rem 0;
+}
+
+/* No Images Message */
+.noImagesMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .previewWrapper {
+    width: 100% !important;
+    max-width: 330px !important;
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 330 / 415;
+  }
+
+  .basePreviewImage, .frameOverlay {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  /* Shrink thumbnails on tablet to fit more */
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.6rem;
+    grid-auto-rows: 85px;
+  }
+
+  .framesPanel .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    background: linear-gradient(180deg, #fffaf8 0%, #fff5ef 100%);
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .headerBar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 122, 48, 0.15);
+  }
+
+  .backBtn {
+    display: none !important;
+  }
+
+  .pageTitle {
+    font-size: calc(1.2rem - 2px);
+    font-weight: 600;
+    color: #F56338;
+  }
+
+  .mainGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    min-height: calc(100vh - 60px);
+    overflow: visible;
+  }
+
+  .previewSection {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0;
+    padding: 14px 16px 10px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 122, 48, 0.1);
+    box-shadow: none;
+    position: relative;
+    top: 0;
+    align-self: auto;
+    max-height: none;
+    flex-shrink: 0; /* don't grow — fixed height */
+  }
+
+  .previewContainer {
+    align-items: center;
+    gap: 0;   /* icon is overlaid, no gap needed */
+  }
+
+  .previewWrapper {
+    width: 278px !important;
+    height: 350px !important;
+    max-width: 278px !important;
+    max-height: 350px !important;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(255, 122, 48, 0.2);
+    border: 2px solid rgba(255, 122, 48, 0.15);
+    overflow: hidden !important;
+  }
+
+  .basePreviewImage {
+    width: 278px !important;
+    height: 350px !important;
+    border-radius: 12px;
+  }
+
+  .frameOverlay {
+    width: 278px !important;
+    height: 350px !important;
+  }
+
+  /* downloadContainer hidden on mobile (button replaced by icon) */
+  .downloadContainer {
+    display: none;
+  }
+
+  /* Hide desktop title in preview section on mobile */
+  .sectionTitleDesktop {
+    display: none !important;
+  }
+
+  /* Hide desktop download button on mobile */
+  .downloadContainerDesktop {
+    display: none !important;
+  }
+
+  /* previewWrapperOuter — relative container for absolute icon placement */
+  .previewWrapperOuter {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Show floating download icon — fixed to viewport (sticky while scrolling) */
+  .mobileDownloadIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;           /* sticky: stays visible on scroll */
+    top: 120px;                 /* below sticky header — cleared with extra margin */
+    right: calc(10% + 2px);   /* 2px left of original 10% */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF7A30, #F56338);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 122, 48, 0.55);
+    transition: transform 0.18s ease;
+    z-index: 99;               /* below sticky header (z-index:100) */
+  }
+  .mobileDownloadIcon:active {
+    transform: scale(0.88);
+  }
+
+  /* Mobile format popup — fixed below the icon */
+  .formatOptionsMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;           /* follows the fixed icon */
+    top: 128px;                /* icon top(90) + height(32) + gap(6) */
+    right: calc(10% + 2px);
+    z-index: 99;
+    background: #fff;
+    border: 1px solid rgba(255, 122, 48, 0.2);
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 6px 20px rgba(255, 122, 48, 0.2);
+  }
+
+  .controlsSection {
+    background: rgba(255, 248, 244, 0.6);
+    padding: 16px;
+    gap: 12px;
+    border-radius: 0;
+    overflow: visible;
+    flex: 1;          /* take all remaining page height */
+    height: auto;
+  }
+
+  .framesPanel {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(255, 122, 48, 0.15);
+    box-shadow: 0 2px 12px rgba(255, 122, 48, 0.07);
+    flex: 0 0 auto;   /* fixed height — just one row of frames */
+    overflow: visible;
+  }
+
+  .imagesPanel {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(255, 122, 48, 0.15);
+    box-shadow: 0 2px 12px rgba(255, 122, 48, 0.07);
+    flex: 1;
+    overflow-x: visible;   /* allow horizontal scroll of child */
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── FRAMES: single horizontal scrolling row ── */
+  .framesPanel .gridContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px;
+    overflow-x: scroll !important;   /* always visible */
+    overflow-y: hidden !important;
+    max-height: none;
+    padding-bottom: 8px;
+    scrollbar-width: auto;
+    scrollbar-color: rgba(255, 122, 48, 0.55) rgba(255, 122, 48, 0.1);
+  }
+
+  .framesPanel .gridContainer > * {
+    flex: 0 0 96px;   /* +20% from 80px */
+    width: 96px;
+    height: 96px;
+  }
+
+  /* Webkit always-visible scrollbar for frames */
+  .framesPanel .gridContainer::-webkit-scrollbar {
+    height: 6px;
+    display: block;
+  }
+  .framesPanel .gridContainer::-webkit-scrollbar-track {
+    background: rgba(255, 122, 48, 0.12);
+    border-radius: 6px;
+  }
+  .framesPanel .gridContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 122, 48, 0.55);
+    border-radius: 6px;
+  }
+
+  /* ── IMAGES: 4 visible (2×2), rest scroll ──
+     cellSize = calc(31.5vw - 21px)  [−10% from calc(35vw-23px)]
+  */
+  .imagesPanel .gridContainer {
+    display: grid !important;
+    grid-template-columns: none !important;
+    grid-template-rows: repeat(2, calc(31.5vw - 21px)) !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: calc(31.5vw - 21px) !important;
+    height: calc(2 * (31.5vw - 21px) + 10px) !important;
+    gap: 10px;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    padding-bottom: 8px;
+    scrollbar-width: auto;
+    scrollbar-color: rgba(255, 122, 48, 0.55) rgba(255, 122, 48, 0.1);
+  }
+
+  /* Image items — square, no crop */
+  .imagesPanel .gridContainer .imageItem {
+    width: calc(31.5vw - 21px) !important;
+    height: calc(31.5vw - 21px) !important;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .imagesPanel .gridContainer .imageItem img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background: #f9f9f9;
+  }
+
+  /* Webkit always-visible scrollbar for images */
+  .imagesPanel .gridContainer::-webkit-scrollbar {
+    height: 6px;
+    display: block;
+  }
+  .imagesPanel .gridContainer::-webkit-scrollbar-track {
+    background: rgba(255, 122, 48, 0.12);
+    border-radius: 6px;
+  }
+  .imagesPanel .gridContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 122, 48, 0.55);
+    border-radius: 6px;
+  }
+
+  .imageItem,
+  .frameItem {
+    border-radius: 8px;
+    border: 1px solid rgba(234, 88, 12, 0.18);
+    transition: all 0.2s ease;
+    background: #ffffff;
+  }
+
+  .imageItem:hover,
+  .frameItem:hover {
+    box-shadow: 0 4px 12px rgba(255, 122, 48, 0.25);
+    border-color: rgba(255, 122, 48, 0.45);
+  }
+
+  .selectedFrame {
+    border: 2px solid #ea580c !important;
+    box-shadow: 0 0 14px rgba(255, 122, 48, 0.4) !important;
+  }
+
+  .activeImage {
+    border: 2px solid #ea580c !important;
+    box-shadow: 0 0 14px rgba(255, 122, 48, 0.4) !important;
+  }
+
+  .draggableText {
+    font-size: 10px;
+    text-shadow: none;
+  }
+
+  .formatOptions {
+    bottom: 110%;
+    gap: 8px;
+  }
+
+  .formatBtn {
+    padding: 8px 16px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerBar {
+    padding: 10px 12px;
+  }
+
+  .backBtn {
+    display: none !important;
+  }
+
+  .pageTitle {
+    font-size: calc(1.1rem - 2px);
+  }
+
+  .previewSection {
+    padding: 16px 12px;
+  }
+
+  .previewWrapper {
+    width: 252px !important;
+    height: 317px !important;
+    max-width: 252px !important;
+    max-height: 317px !important;
+    overflow: hidden !important;
+  }
+
+  .basePreviewImage {
+    width: 252px !important;
+    height: 317px !important;
+  }
+
+  .frameOverlay {
+    width: 252px !important;
+    height: 317px !important;
+  }
+
+  .downloadBtn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  .controlsSection {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
+  .framesPanel,
+  .imagesPanel {
+    padding: 12px;
+  }
+
+  /* ≤480px: frames 1 row */
+  .framesPanel .gridContainer {
+    gap: 6px;
+  }
+  .framesPanel .gridContainer > * {
+    flex: 0 0 82px;   /* +20% from 68px */
+    width: 82px;
+    height: 82px;
+  }
+
+  /* ≤480px: images −10% */
+  .imagesPanel .gridContainer {
+    grid-template-rows: repeat(2, calc(31.5vw - 17px)) !important;
+    grid-auto-columns: calc(31.5vw - 17px) !important;
+    height: calc(2 * (31.5vw - 17px) + 10px) !important;
+    gap: 8px;
+  }
+  .imagesPanel .gridContainer .imageItem {
+    width: calc(31.5vw - 17px) !important;
+    height: calc(31.5vw - 17px) !important;
+  }
+
+  .draggableText {
+    font-size: 9px;
+  }
+
+  .formatBtn {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+}
+
+@media (min-width: 1025px) and (max-height: 702px) {
+  .previewSection {
+    /* Allow the section to shrink and center its content */
+    justify-content: center;
+  }
+
+  .previewWrapper {
+    /* Scale height based on viewport, minus header/padding */
+    height: calc(100vh - 180px) !important;
+    /* Calculate width to maintain aspect ratio */
+    width: calc((100vh - 180px) * (330 / 415)) !important;
+    max-width: 330px !important;
+    max-height: 415px !important;
+  }
+
+  .basePreviewImage,
+  .frameOverlay {
+    /* Ensure images fill the newly scaled wrapper */
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

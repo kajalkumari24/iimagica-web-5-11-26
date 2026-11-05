@@ -1,0 +1,185 @@
+/* Skeleton Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+
+/* Main Container */
+.pageContainer {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #fffaf8 0%, #fff9f5 50%, #fff8f4 100%);
+  color: #1e1b4b;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* Header Skeleton */
+.headerBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 122, 48, 0.12);
+}
+
+.backBtnSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  width: 80px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.titleSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  width: 200px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+/* Main Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  flex: 1;
+  padding: 1.5rem;
+  min-height: 0;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* Preview Section */
+.previewSection {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.5rem;
+  overflow: auto;
+  min-height: 0;
+  border: 1px solid rgba(255, 122, 48, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 122, 48, 0.08);
+}
+
+.sectionTitleSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  width: 180px;
+  height: 20px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.previewContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 0;
+  overflow: auto;
+}
+
+.previewImageSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  width: 330px;
+  height: 415px;
+  border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+  .previewImageSkeleton {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+.downloadBtnSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  width: 160px;
+  height: 48px;
+  border-radius: 50px;
+}
+
+/* Controls Section */
+.controlsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+  min-height: 0;
+}
+
+.framesPanel,
+.imagesPanel {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 122, 48, 0.15);
+  box-shadow: 0 4px 20px rgba(255, 122, 48, 0.07);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.8rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.frameItemSkeleton,
+.imageItemSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  min-height: 90px;
+}
+
+/* Apply shimmer animation to all skeleton elements */
+.backBtnSkeleton,
+.titleSkeleton,
+.sectionTitleSkeleton,
+.previewImageSkeleton,
+.downloadBtnSkeleton,
+.frameItemSkeleton,
+.imageItemSkeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.12) 50%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+}

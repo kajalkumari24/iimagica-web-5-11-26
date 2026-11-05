@@ -1,0 +1,372 @@
+.removeBgBtn {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.removeBgBtn:hover {
+  background: linear-gradient(90deg, #0056b3, #003f7f);
+}
+
+.mainContainer {
+  display: flex;
+  /* background-color: #07073a; */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 239px;
+  background: white;
+  color: #000;
+  padding: 21px;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.sidebarTitle {
+  font-size: 25px;
+  color: white;
+  background-color: #2B2B55;
+   border-radius: 12px;
+   font-weight: 500;
+  text-align: center;
+  padding: 4px;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+}
+
+/* Sidebar List Item */
+/* Sidebar List Item */
+.sidebarList li {
+  margin: 30px 0;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover Effect */
+.sidebarList li:hover {
+  background: #2B2B55;
+  color: #fff;
+}
+
+/* Active Menu Item */
+.sidebarList li.active {
+  background-color: #2B2B55; /* Active background */
+  color: white;
+}
+
+
+/* Keep active item hover smooth */
+.sidebarList li.active:hover {
+  background-color: #2B2B55; /* stays same as active */
+}
+
+
+/* Profile Container */
+.profileContainer {
+  width: 100%;
+  /* margin-left: 240px; */
+  /* border-radius: 20px; */
+  background: #2B2B55;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.formTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.formSubtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Form */
+.profileForm {
+  display: grid;
+  border-radius: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Upload Section */
+.uploadContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  grid-column: span 3;
+}
+
+.uploadBox {
+  display: inline-block;
+  border: 2px dashed white;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.uploadImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  color: white;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadText {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+/* Input Groups */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin: 5px 20px;
+  color: white;
+}
+
+.profileInput {
+  padding: 10px;
+  margin: 0 20px 10px;
+  border: 1px solid white;
+  border-radius: 8px;
+  outline: none;
+  color: white;
+  background-color: #2B2B55;
+}
+
+.profileInput:focus {
+  border-color: white;
+}
+
+/* Submit Button */
+.formSubmit {
+  grid-column: span 3;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formSubmit button {
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #af39a4, #4268a9); /* gradient background */
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* subtle shadow for depth */
+}
+
+.formSubmit button:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb); /* gradient reversal on hover */
+  transform: translateY(-2px); /* subtle lift */
+}
+
+.formSubmit button:active {
+  transform: scale(0.95); /* click effect */
+}
+
+
+/* Success/Error Message */
+.formMessage {
+  text-align: center;
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.sidebarList li.active {
+  background-color: #2B2B55;
+  color: white;
+}
+
+/* Target date input */
+.profileInput[type="date"] {
+  color: white; /* text color */
+  background-color: #2B2B55; /* your input bg */
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-appearance: none; /* remove default styling in Chrome/Safari */
+  -moz-appearance: none; /* remove default styling in Firefox */
+  appearance: none;
+  position: relative;
+}
+
+/* For Firefox placeholder/icon */
+.profileInput[type="date"]::-moz-placeholder {
+  color: white;
+}
+
+/* Remove default calendar icon in Chrome/Safari */
+.profileInput[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* invert color to make it white */
+  opacity: 1; /* ensure it’s visible */
+}
+
+
+.sidebar {
+  height: auto;
+  background-color: white;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  width: auto;
+}
+
+.collapseButton {
+  /* position: absolute;   stick inside sidebar */
+  top: 10px;            /* adjust how far from the top */
+  right: 10px;          /* stay inside the right corner */
+  
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  color: #2B2B55;
+  font-size: 18px;
+  z-index: 1000;
+}
+
+
+/* responsive */
+
+/* Default (Desktop > 1024px) */
+.profileForm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Tablet (768px - 1024px) → 2 columns */
+@media (max-width: 1024px) {
+  .profileForm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sidebar {
+    width: 200px;
+    padding: 15px;
+  }
+
+  .sidebarTitle {
+    font-size: 20px;
+  }
+
+  .formTitle {
+    font-size: 24px;
+  }
+}
+
+/* Mobile (max-width: 768px) → 1 column */
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column; /* Sidebar stacks on top */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebarList li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profileContainer {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .profileForm {
+    grid-template-columns: 1fr;
+  }
+
+  .formTitle {
+    font-size: 20px;
+  }
+
+  .formSubtitle {
+    font-size: 16px;
+  }
+
+  .collapseButton {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  .uploadImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profileInput {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .formSubmit button {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .formTitle {
+    font-size: 18px;
+  }
+
+  .formSubtitle {
+    font-size: 14px;
+  }
+
+  .sidebarTitle {
+    font-size: 18px;
+    padding: 3px;
+  }
+
+  .uploadImage {
+    width: 80px;
+    height: 80px;
+  }
+}

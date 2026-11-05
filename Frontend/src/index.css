@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Hindi fonts (uses locally installed fonts when available) */
+@font-face {
+  font-family: "A Ams Aakash";
+  src: local("A Ams Aakash"), local("A Ams Akash");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Ams Asmi";
+  src: local("A Ams Asmi");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Ams Manaja";
+  src: local("A Ams Manaja");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Ams Calligraphy";
+  src: local("A Ams Calligraphy"), local("A Ams calligraphy");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Ams Aditya";
+  src: local("A Ams Aditya"), local("A Ams_Aditya");
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  /* background: #0a0a1a; */
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+  /* background: #0a0a1a; */
+}
+
+body {
+  /* background: #0a0a1a !important; */
+  position: relative;
+  min-height: 100%;
+}
+
+@supports (min-height: 100dvh) {
+  html, body, #root {
+    min-height: 100dvh;
+  }
+}
+
+/* Prevent tiny white strip on some mobile browsers at viewport bottom */
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: max(env(safe-area-inset-bottom, 0px), 1px);
+  /* background: #0a0a1a; */
+  pointer-events: none;
+  z-index: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    padding-bottom: 0;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.3rem !important;
+  }
+  
+  h3 {
+    font-size: 1.1rem !important;
+  }
+}

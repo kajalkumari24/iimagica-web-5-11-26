@@ -1,0 +1,295 @@
+/* .HelpBody {
+  background-color: #2b2b55;
+  min-height: 100vh;
+  display: flex;              
+  justify-content: center;    
+  align-items: center;        
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;                
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  border-radius: 10px;        
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
+  position: relative;         
+}
+
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 8px 15px;
+  margin: 0 auto 25px;   
+  background: #f9f9f9;
+  width: 70%;            
+  max-width: 500px;     
+}
+
+
+.searchIcon {
+  color: #888;
+  
+  margin-right: 8px;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  background: transparent;
+}
+
+
+.faqSection {
+  margin-bottom: 40px;
+}
+
+.faqItem {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 500;
+  color: #2b2b55;
+  transition: color 0.3s;
+}
+
+.faqQuestion:hover {
+  color: #4444aa;
+}
+
+.faqAnswer {
+  margin-top: 8px;
+  padding-left: 5px;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.noResult {
+  text-align: center;
+  color: #999;
+  margin-top: 15px;
+}
+
+
+.contactBox {
+  text-align: center;
+  background: #f2f2fc;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.contactBox h2 {
+  margin-bottom: 10px;
+}
+
+.contactButton {
+   background: linear-gradient(135deg, #b34d82, #3a74d8);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 12px;
+  transition: background 0.3s;
+}
+
+.contactButton:hover {
+  background: #4444aa;
+}
+ */
+/* HelpSupport.module.css */
+
+.HelpBody {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #2b2b55); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background: #ddb6b615; /* lighter glass effect */
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.6s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #dcdcdc;
+  margin-bottom: 30px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin-bottom: 35px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+.searchBox:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.searchIcon {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.searchInput::placeholder {
+  color: #e0e0e0;
+}
+
+/* FAQ Section */
+.faqSection {
+  margin-bottom: 40px;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.faqItem:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.faqQuestion:hover {
+  background: pink;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faqAnswer {
+  padding: 15px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.noResult {
+  text-align: center;
+  color: #ffc3a0;
+  margin-top: 15px;
+}
+
+/* Contact Section */
+.contactBox {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.contactBox h2 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+}
+
+.contactButton {
+  background: linear-gradient(90deg, #413176, #872e53);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 6px 10px rgba(159, 96, 105, 0.4);
+}
+
+.contactButton:hover {
+  background:linear-gradient(90deg, #413176, #872e53);
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

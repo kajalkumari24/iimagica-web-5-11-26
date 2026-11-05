@@ -1,0 +1,53 @@
+/* ImageGallery.module.css */
+
+.container{
+  background-color: #040b46;
+}
+
+.galleryContainer {
+  padding: 20px;
+  
+  
+}
+
+.categorySection {
+  margin-bottom: 40px;
+  
+}
+
+.categoryTitle {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000000;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.imagesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.imageItem {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border-color: #000000;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.imageItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.loadingText {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  margin-top: 50px;
+}

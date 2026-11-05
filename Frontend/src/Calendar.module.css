@@ -1,0 +1,372 @@
+.calendarContainer {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 32px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  color: #1e293b;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.calendarHeader h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #F11C6B;
+}
+
+.calendarHeader button {
+  background: #fff0f5;
+  color: #F11C6B;
+  border: 1px solid #ffd1e1;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 200ms ease;
+}
+
+.calendarHeader button:hover {
+  background: #ffd1e1;
+  border-color: #ffb3cd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(241, 28, 107, 0.2);
+}
+
+.scrollButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.calendarScroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.calendarScroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.calendarScroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.calendarDayHorizontal {
+  min-width: 50px;
+  height: 50px;
+  background: #f3f4f6;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.calendarDayHorizontal:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+.festivalDay {
+  background: #fde68a;
+  border: 2px solid #facc15;
+  color: #92400e;
+}
+
+.festivalImages {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.festivalImages h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.festivalList {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 16px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #fca6c5 #f1f5f9;
+  scroll-behavior: smooth;
+}
+
+.festivalList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.festivalList::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.festivalList::-webkit-scrollbar-thumb {
+  background: #fca6c5;
+  border-radius: 10px;
+}
+
+.festivalList::-webkit-scrollbar-thumb:hover {
+  background: #f176a3;
+}
+
+.festivalCard {
+  min-width: 160px;
+  max-width: 180px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  padding: 12px;
+  cursor: pointer;
+  transition: all 250ms ease;
+  animation: fadeInUp 400ms ease both;
+}
+
+.festivalCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(241, 28, 107, 0.12);
+  border-color: #fca6c5;
+  background: #fffafb;
+}
+
+.festivalCard img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e2e8f0;
+  transition: all 200ms ease;
+}
+
+.festivalCard:hover img {
+  border-color: #fca6c5;
+}
+
+.festivalCard p {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scrollButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.scrollButtons button {
+  background: #fff0f5;
+  color: #F11C6B;
+  border: 1px solid #ffd1e1;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 200ms ease;
+}
+
+.scrollButtons button:hover {
+  background: #ffd1e1;
+  border-color: #fca6c5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(241, 28, 107, 0.15);
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 300ms ease;
+}
+
+.modalContent {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.1);
+  animation: scaleIn 300ms ease;
+}
+
+.modalContent h2 {
+  color: #F11C6B;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.modalContent img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 20px 0;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.modalContent button {
+  background: #F11C6B;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  transition: all 200ms ease;
+  margin-top: 12px;
+}
+
+.modalContent button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(241, 28, 107, 0.3);
+  background: #d4105a;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .calendarContainer {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .calendarHeader {
+    padding: 12px 16px;
+  }
+  
+  .calendarHeader h2 {
+    font-size: 20px;
+  }
+  
+  .festivalCard {
+    min-width: 140px;
+  }
+  
+  .modalContent {
+    padding: 24px;
+  }
+}
+
+.viewTemplatesBtn {
+  background: #0ea5e9 !important;
+  color: white !important;
+  margin-right: 12px !important;
+}
+
+.viewTemplatesBtn:hover {
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.25) !important;
+  background: #0284c7 !important;
+}
+
+.calendarContainer > p {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.closeOverlayBtn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  padding: 0;
+  line-height: 1;
+  z-index: 10;
+}
+
+.closeOverlayBtn:hover {
+  background: #e2e8f0;
+  color: #ef4444;
+  transform: scale(1.1);
+}

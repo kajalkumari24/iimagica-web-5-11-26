@@ -1,0 +1,704 @@
+/* Preview Wrapper - Centered canvas */
+.previewWrapper {
+  position: relative; /* THIS IS THE IMPORTANT PART */
+  display: inline-block;
+  /* fixed rendering size that must match admin: 330x415 */
+  width: 330px !important;
+  height: 415px !important;
+  max-width: 330px !important;
+  max-height: 415px !important;
+  border-radius: 12px;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  background: transparent;
+}
+
+
+.basePreviewImage {
+  /* Force the base image to exactly match wrapper size so exported canvas is consistent */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px !important;
+  height: 415px !important;
+  display: block;
+  border-radius: 12px;
+ 
+  transform: none !important;
+  transition: none;
+  z-index: 1;
+}
+
+.frameOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px !important;
+  height: 415px !important;
+  pointer-events: none;
+  object-fit: contain; /* match admin ManageFrames preview fit */
+  z-index: 2;
+}
+
+.previewWrapper {
+  /* fixed preview size to match admin (330x415) */
+  width: 330px;
+  height: 415px;
+  /* center the fixed-size preview in its container */
+  margin: 0 auto;
+}
+/* Download Button - Modern Style */
+.downloadBtn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.24);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* Keep the download button visible when the right panel scrolls */
+  position: relative;
+  align-self: center;
+  z-index: 60;
+}
+
+.downloadBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.32);
+}
+
+.downloadBtn:active {
+  transform: translateY(0);
+}
+
+.downloadContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formatOptions {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 100;
+  margin-bottom: 0.5rem;
+}
+
+.formatBtn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.24);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.formatBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.32);
+}
+
+.formatBtn:active {
+  transform: translateY(0);
+}
+
+
+/* Main Container - Full viewport, no scrolling */
+.pageContainer {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background: linear-gradient(180deg, #f8f7ff 0%, #ffffff 45%, #f5f3ff 100%);
+  color: #1f2937;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Header */
+.pageTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.6rem 0; /* smaller padding, header has its own padding */
+  background: transparent; /* remove translucent background behind title */
+  border-bottom: none; /* remove bottom border on title */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  flex: 1; /* allow title to take remaining space in header */
+  color: #8b5cf6;
+}
+
+/* Header bar with improved color and back button */
+.headerBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.14);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.resumeBadge {
+  margin-left: auto;
+  padding: 6px 10px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  color: #7c3aed;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+.backBtn {
+  background: #ffffff;
+  color: #7c3aed;
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.14s ease;
+  box-shadow: 0 8px 18px rgba(139, 92, 246, 0.08);
+}
+
+.backBtn:hover {
+  background: #f5f3ff;
+  transform: translateY(-1px);
+}
+
+/* Main Content Grid - Preview Left, Controls Right */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  flex: 1;
+  padding: 1.5rem;
+  min-height: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Preview Section (Left) */
+.previewSection {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 1.5rem;
+  /* allow inner scrolling when vertical space is limited */
+  overflow: auto;
+  min-height: 0;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  box-shadow: 0 20px 45px rgba(79, 70, 229, 0.08);
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #8b5cf6;
+  letter-spacing: 0.5px;
+}
+
+.previewContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  /* allow the preview area to scroll internally if needed */
+  min-height: 0;
+  overflow: auto;
+}
+
+
+/* Controls Section (Right) */
+.controlsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* let the controls scroll independently */
+  overflow: auto;
+  min-height: 0;
+}
+
+.framesPanel,
+.imagesPanel {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  padding: 1.2rem;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  box-shadow: 0 18px 40px rgba(79, 70, 229, 0.07);
+}
+
+/* Grid Container for Frames & Images */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 0.8rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  grid-auto-rows: 110px;
+}
+
+/* Custom Scrollbar */
+.gridContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gridContainer::-webkit-scrollbar-track {
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 10px;
+}
+
+.gridContainer::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.35);
+  border-radius: 10px;
+}
+
+.gridContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+/* Frame & Image Items */
+.imageItem,
+.frameItem {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  aspect-ratio: 1;
+  background: transparent;
+  display: block;
+  position: relative;
+}
+
+.imageItem:hover,
+.frameItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(139, 92, 246, 0.18);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.imageItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Make frame images visually larger while keeping container size unchanged */
+.frameItem {
+  position: relative; /* needed for absolute img positioning */
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(139, 92, 246, 0.14);
+  background: #faf5ff;
+}
+
+.frameItem img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.selectedFrame {
+  border: 2px solid #4caf50 !important;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+}
+
+.activeImage {
+  border: 2px solid #8b5cf6 !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.28);
+}
+
+.emptyText {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 2rem;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #8b5cf6;
+}
+
+/* Draggable Elements */
+.draggableText {
+  position: absolute;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: none !important;
+  cursor: move;
+  display: block;
+  line-height: 1 !important;
+  letter-spacing: 0;
+  white-space: nowrap;
+  padding: 0; /* no background padding, keep it simple */
+  background: transparent; /* remove dark background */
+  border-radius: 0;
+  backdrop-filter: none;
+  user-select: none;
+  transition: opacity 0.12s ease;
+  z-index: 4;
+}
+
+.socialIcon {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  margin-right: 4px;
+}
+
+.socialIcon img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.draggableText span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.draggableText:hover {
+  opacity: 0.95; /* very subtle hover feedback */
+}
+
+.uploadedDraggable {
+  position: absolute !important;
+  z-index: 3 !important;
+  object-fit: cover;
+  cursor: move;
+  border-radius: 8px;
+  pointer-events: auto;
+}
+
+
+.uploadedDraggable:hover {
+  opacity: 0.95; /* subtle hover feedback without scaling */
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 6px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.uploadInput {
+  margin: 1rem 0;
+}
+
+/* No Images Message */
+.noImagesMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .previewWrapper {
+    width: 100% !important;
+    max-width: 330px !important;
+    height: auto !important;
+    aspect-ratio: 330 / 415;
+  }
+
+  .basePreviewImage, .frameOverlay {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Shrink thumbnails on tablet to fit more */
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.6rem;
+    grid-auto-rows: 85px;
+  }
+
+  .framesPanel .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+  }
+
+  .headerBar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.16);
+  }
+
+  .backBtn {
+    display: none !important;
+  }
+
+  .pageTitle {
+    font-size: calc(1.2rem - 2px);
+    font-weight: 600;
+  }
+
+  .mainGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    min-height: calc(100vh - 60px);
+  }
+
+  .previewSection {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0;
+    padding: 20px 16px;
+    border: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+  }
+
+  .sectionTitle {
+    font-size: calc(1rem - 2px);
+    margin-bottom: 16px;
+    text-align: center;
+    color: #8b5cf6;
+  }
+
+  .previewContainer {
+    align-items: center;
+    gap: 20px;
+  }
+
+  .previewWrapper {
+    width: 330px !important;
+    height: 415px !important;
+    max-width: 330px !important;
+    max-height: 415px !important;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.16);
+    border: 2px solid rgba(139, 92, 246, 0.14);
+    overflow: hidden !important;
+  }
+
+  .basePreviewImage {
+    width: 330px !important;
+    height: 415px !important;
+    border-radius: 14px;
+  }
+
+  .frameOverlay {
+    width: 330px !important;
+    height: 415px !important;
+  }
+
+  .downloadContainer {
+    margin-top: 16px;
+  }
+
+  .downloadBtn {
+    padding: 12px 24px;
+    font-size: 12px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.22);
+  }
+
+  .controlsSection {
+    background: rgba(255, 255, 255, 0.84);
+    padding: 20px 16px;
+    gap: 20px;
+    border-radius: 0;
+  }
+
+  .framesPanel,
+  .imagesPanel {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.14);
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+    grid-auto-rows: 85px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .imageItem,
+  .frameItem {
+    border-radius: 8px;
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    transition: all 0.2s ease;
+  }
+
+  .imageItem:hover,
+  .frameItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.18);
+    border-color: rgba(139, 92, 246, 0.36);
+  }
+
+  .selectedFrame {
+    border: 2px solid #8b5cf6 !important;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+  }
+
+  .activeImage {
+    border: 2px solid #8b5cf6 !important;
+    box-shadow: 0 0 16px rgba(139, 92, 246, 0.3);
+  }
+
+  .draggableText {
+    font-size: 10px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  .formatOptions {
+    bottom: 110%;
+    gap: 8px;
+  }
+
+  .formatBtn {
+    padding: 8px 16px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerBar {
+    padding: 10px 12px;
+  }
+
+  .backBtn {
+    display: none !important;
+  }
+
+  .pageTitle {
+    font-size: calc(1.1rem - 2px);
+  }
+
+  .previewSection {
+    padding: 16px 12px;
+  }
+
+  .previewWrapper {
+    width: 330px !important;
+    height: 415px !important;
+    max-width: 330px !important;
+    max-height: 415px !important;
+    overflow: hidden !important;
+  }
+
+  .basePreviewImage {
+    width: 330px !important;
+    height: 415px !important;
+  }
+
+  .frameOverlay {
+    width: 330px !important;
+    height: 415px !important;
+  }
+
+  .downloadBtn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  .controlsSection {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
+  .framesPanel,
+  .imagesPanel {
+    padding: 12px;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 6px;
+    grid-auto-rows: 75px;
+    max-height: 180px;
+  }
+
+  .draggableText {
+    font-size: 9px;
+  }
+
+  .formatBtn {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+}
+.float-main {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: floatAnim 6s ease-in-out infinite;
+}
+
+.float-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}

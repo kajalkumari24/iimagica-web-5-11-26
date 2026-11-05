@@ -1,0 +1,123 @@
+.privacy-page {
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(120, 115, 245, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, rgba(255, 110, 196, 0.14), transparent 55%),
+    #0b1226;
+  color: #e6e6f2;
+  padding-top: 80px; /* Push content below sticky header */
+}
+
+.privacy-hero {
+  padding: 0 20px 40px; /* Removed top padding, now on .privacy-page */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.privacy-hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.privacy-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.privacy-hero h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.privacy-effective {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.privacy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px 70px;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+.privacy-container h2 {
+  margin: 28px 0 10px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.privacy-container h3 {
+  margin: 18px 0 8px;
+  font-size: 18px;
+  color: #f0f0ff;
+}
+
+.privacy-container h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.privacy-container p {
+  margin: 10px 0;
+  color: rgba(230, 230, 242, 0.85);
+}
+
+.privacy-container ul {
+  padding-left: 20px;
+  margin: 10px 0 16px;
+}
+
+.privacy-container li {
+  margin-bottom: 6px;
+}
+
+.privacy-permissions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 14px 0 10px;
+}
+
+.permission-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+@media (max-width: 768px) {
+  .privacy-page {
+    padding-top: 70px; /* Adjust for mobile header */
+  }
+
+  .privacy-hero h1 {
+    font-size: 30px;
+  }
+
+  .privacy-container {
+    font-size: 15px;
+  }
+
+  .privacy-container h2 {
+    font-size: 20px;
+  }
+
+  .privacy-permissions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-hero h1 {
+    font-size: 26px;
+  }
+
+  .privacy-container {
+    padding-bottom: 50px;
+  }
+}

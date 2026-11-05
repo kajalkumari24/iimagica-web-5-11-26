@@ -1,0 +1,261 @@
+/* Container holds video + overlay */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen */
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔹 Background Video */
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* video stretch na ho */
+  z-index: -1; /* content ke peeche */
+}
+
+/* 🔹 Overlay (content area) */
+.overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* thoda dark filter for readability */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+
+
+
+.profileheader {
+    
+  
+   position: relative;
+   /* background: linear-gradient(135deg, #f0f4ff, #e0e6ff);  */
+
+   background: linear-gradient(135deg, #667eea, #764ba2);
+
+  color: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 15px 30px;
+  margin-top: 20px;
+
+
+/* 🔹 Background gradient animation */
+  
+   /* background: linear-gradient(135deg, #cde0ff, #f0f4ff, #d0e8ff, #b8d9ff);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite; */
+
+ /* 🔹 Subtle shadow with animation */
+  /* box-shadow: 0 10px 25px rgba(237, 169, 188, 0.4); */
+  
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); */
+  transition: all 0.4s ease;  
+  cursor: pointer;
+
+  /* 🔹 Border same as hover from start */
+  /* border: 3px solid #fff; 
+  
+  animation: shadowPulse 3s infinite alternate, backgroundShimmer 5s infinite alternate; */
+}
+
+.profileheader h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color:#ffffff
+  
+}
+
+.profileheader p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #ffffff;
+  transition: color 0.4s ease;
+  
+}
+
+/* 🔥 Hover Effect */
+.profileheader:hover {
+  /* transform: scale(1.05);  */
+background: linear-gradient(135deg, #667eea, #764ba2);
+color: white;
+  box-shadow: 0 10px 25px rgba(237, 169, 188, 0.856);
+
+  border: 1px solid #fff;
+  box-shadow: 0 0 12px #667eea, 0 0 25px #764ba2;
+}
+
+/* Text animation on hover */
+.profileheader:hover h2,
+.profileheader:hover p {
+  /* color: #ffffff; */
+   color: #fff;
+ 
+}
+
+/* Keyframes for subtle shadow animation */
+@keyframes shadowPulse {
+  0% { box-shadow: 0 10px 20px rgba(237, 169, 188, 0.3); }
+  50% { box-shadow: 0 10px 25px rgba(237, 169, 188, 0.4); }
+  100% { box-shadow: 0 10px 25px rgba(237, 169, 188, 0.5); }
+}
+
+/* 🔹 Keyframes for subtle background shimmer */
+@keyframes backgroundShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+/* Profile grid (horizontal scroll) */
+.profilegrid {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+  overflow-x: auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 1200px;
+  scroll-behavior: smooth;
+  justify-content: center;
+   /* 🔹 Subtle animated gradient */
+  /* background: linear-gradient(45deg, rgba(255,255,255,0.05), rgba(200,220,255,0.08), rgba(255,255,255,0.05)); */
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease-in-out infinite;
+}
+
+
+  /* Scrollbar styling */
+.profilegrid::-webkit-scrollbar {
+  height: 8px;
+}
+.profilegrid::-webkit-scrollbar-thumb {
+  background: #a5a154;
+  border-radius: 8px;
+}
+.profilegrid::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 8px;
+}
+
+/* Profile card */
+.profilecard {
+  flex: 0 0 auto;
+  border-radius: 16px;
+  width: 200px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #667eea, #764ba2, #6b8dd6, #8e44ad);
+  background-size: 400% 400%;
+
+ 
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 10px rgba(102, 126, 234, 0.15);
+   
+ 
+
+  transition: all 0.4s ease;
+
+
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 10px rgba(102, 126, 234, 0.15);
+  
+   border: 3px solid transparent;
+
+
+}
+
+
+
+.profilecard:hover {
+
+  
+   
+  background-size: 300% 300%;
+  animation: glossyShift 6s ease infinite;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6), 
+            0 12px 40px rgba(0, 114, 255, 0.4), 
+            0 20px 70px rgba(79, 172, 254, 0.35);
+
+  transform: scale(1.05);
+  position: relative;
+  overflow: hidden;
+
+}
+
+.profilecard:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 60%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 2s infinite;
+}
+
+/* 🔄 Gradient shifting animation */
+@keyframes glossyShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ✨ Shine streak move */
+@keyframes shine {
+  0%   { left: -75%; }
+  100% { left: 125%; }
+}
+
+
+
+
+
+
+/* Profile icon inside card */
+.profileicon {
+  width: 145px;
+  height: 145px;
+  margin-top: 15px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Profile name footer */
+.profilename {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgba(44, 44, 116, 0.9);
+  color: white;
+  border-radius: 0 0 12px 12px;
+}

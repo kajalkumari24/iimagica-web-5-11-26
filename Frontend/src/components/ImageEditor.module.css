@@ -1,0 +1,197 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  background: #241f1f;
+  padding: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* New modal body flex for sidebar + image */
+.modalBody {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start; /* top aligned */
+}
+
+/* Sidebar buttons */
+.sidebarActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #1c1717;
+  padding: 12px;
+  border-radius: 10px;
+  min-width: 140px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.sidebarBtn {
+  display: flex;
+  margin-top: 35px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.sidebarBtn:hover {
+  background: #3399ff;
+  transform: scale(1.05);
+}
+
+/* Preview image */
+.previewBox {
+  width: 600px;
+  height: 20px;
+  margin-bottom: 550px;
+  position: relative;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.frameOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Close button over image */
+.closeBtn {
+  position: absolute;
+ top: 10px;          /* adjust as needed */
+  right: 10px;  
+  font-size: 14px;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+/* 
+.closeBtn:hover {
+  transform: scale(1.2);
+  background: #ff2222;
+} */
+
+/* Frames section */
+.frames {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.frames button {
+  padding: 6px 12px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.frames button:hover {
+  background: #007bff;
+}
+
+.activeFrame {
+  background: #007bff;
+  border-color: #007bff;
+}
+
+/* Frames scroller */
+.framesScroller {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  max-height: 600px;
+  overflow-x: auto;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  overscroll-behavior: contain;
+}
+
+.framesContainer {
+  display: flex;
+  gap: 12px;
+  min-width: max-content;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.frameItem {
+  width: 150px;
+  height: 200px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  background: #333;
+  display: block;
+  padding: 0;
+}
+
+.frameItem:hover {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.frameItem.activeFrame {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.framePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.noFrame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}

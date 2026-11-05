@@ -1,0 +1,156 @@
+/* Shared modal styles used by Sliders and CategoryPage */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.70); /* darker, no blur */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.card {
+  width: min(920px, 94%);
+  max-height: 86vh;
+  background: #07070b; /* fully opaque dark background for crisp content */
+  position: relative;
+  border-radius: 14px;
+  box-shadow: 0 22px 80px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.media {
+  flex: 1 1 auto;
+  width: 100%;
+  height: min(70vh, 66vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.12));
+  position: relative;
+}
+
+.media img {
+  max-width: 100%;
+  max-height: 68vh;
+  display: block;
+  border-radius: 6px;
+}
+
+.actionsBottom {
+  display: flex;
+  gap: 12px;
+  padding: 10px 14px 14px;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+}
+
+/* small download menu shown under Download button */
+.downloadMenu {
+  position: absolute;
+  bottom: 56px; /* above actions bar */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 6px;
+  display: flex;
+  gap: 8px;
+  z-index: 1600;
+  min-width: 160px;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(14,18,28,0.18);
+  border: 1px solid rgba(12,16,24,0.06);
+  color: #111827; /* dark text */
+}
+
+.downloadMenu::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+  filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.06));
+}
+
+.downloadOption {
+  background: transparent;
+  color: #111827;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(16,24,40,0.04);
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.downloadOption:hover {
+  background: rgba(15,23,42,0.04);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(14,18,28,0.08);
+}
+
+.downloadOption svg { fill: #ff7a18; opacity: 0.95; }
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg,#ff7a18,#af002d);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(175,0,45,0.18);
+}
+
+.btn.ghost {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.95);
+  font-size: 26px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 140ms ease, color 140ms ease, transform 120ms ease;
+}
+.close:hover {
+  background: rgba(255,122,24,0.12);
+  color: #ff7a18;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 720px) {
+  .card { flex-direction: column; max-height: 92vh; }
+  .media { flex: 0 0 auto; padding: 10px; }
+}

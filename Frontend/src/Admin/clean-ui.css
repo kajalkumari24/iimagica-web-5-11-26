@@ -1,0 +1,35 @@
+/* Scoped to Admin Category page only (do not affect whole app/toasts) */
+.admin-clean-ui,
+.admin-clean-ui *,
+.admin-clean-ui *::before,
+.admin-clean-ui *::after {
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.admin-clean-ui *:hover {
+  transform: none !important;
+}
+
+.admin-clean-ui button:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.admin-clean-ui .categoryName {
+  cursor: default !important;
+  border: none !important;
+}
+
+.admin-clean-ui .categoryName:hover {
+  background: none !important;
+}
+
+.admin-clean-ui .orderBadge {
+  cursor: default !important;
+}
+
+.admin-clean-ui .orderBadge:hover {
+  background: #10b981 !important;
+}
